@@ -220,3 +220,7 @@ terraform.tfstate.d/
 # Variable files that might contain secrets
 *.auto.tfvars
 terraform.tfvars
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md

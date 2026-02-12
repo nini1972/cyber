@@ -125,12 +125,12 @@ resource "azurerm_container_app" "main" {
 
       env {
         name  = "OPENAI_API_KEY"
-        value = var.openai_api_key
+        secret_name = "openai-api-key"
       }
 
       env {
         name  = "SEMGREP_APP_TOKEN"
-        value = var.semgrep_app_token
+        secret_name = "semgrep-app-token"
       }
 
       env {
@@ -168,6 +168,16 @@ resource "azurerm_container_app" "main" {
   secret {
     name  = "registry-password"
     value = azurerm_container_registry.acr.admin_password
+  }
+
+  secret {
+    name  = "openai-api-key"
+    value = var.openai_api_key
+  }
+
+  secret {
+    name  = "semgrep-app-token"
+    value = var.semgrep_app_token
   }
 
   tags = {
